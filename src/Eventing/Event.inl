@@ -8,6 +8,8 @@
  */
 #pragma once
 
+#include <Logger/LogSystem.hpp>
+
 namespace SW::Eventing
 {
 

@@ -10,8 +10,6 @@ file(GLOB_RECURSE SOURCES "src/Eventing/*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 
-set(LOGGER_MODULE_DIR "../Logger/src")
-
 if(WIN32)
     target_compile_definitions(Logger PUBLIC SW_PLATFORM_WINDOWS)
 elseif(UNIX)
