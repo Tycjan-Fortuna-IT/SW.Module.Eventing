@@ -14,6 +14,8 @@ namespace SW::Eventing
 	template <typename... CallbackArgTypes>
 	ListenerID Event<CallbackArgTypes...>::AddListener(Callback callback)
 	{
+		ASSERT(callback, "Callback must be a valid function pointer");
+
 		m_Callbacks.emplace(m_LastListenerID, callback);
 
 		return m_LastListenerID++;
@@ -22,6 +24,8 @@ namespace SW::Eventing
 	template <typename... CallbackArgTypes>
 	ListenerID Event<CallbackArgTypes...>::operator+=(Callback callback)
 	{
+		ASSERT(callback, "Callback must be a valid function pointer");
+		
 		return AddListener(callback);
 	}
 
