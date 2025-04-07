@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.16...3.26 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
 
-project(Eventing VERSION 0.2.1 LANGUAGES CXX)
+project(SW.Module.Eventing VERSION 0.2.2 LANGUAGES CXX)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
@@ -10,11 +10,5 @@ file(GLOB_RECURSE SOURCES "src/Eventing/*.cpp")
 
 add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
 
-if(WIN32)
-    target_compile_definitions(Logger PUBLIC SW_PLATFORM_WINDOWS)
-elseif(UNIX)
-    target_compile_definitions(Logger PUBLIC SW_PLATFORM_LINUX)
-endif()
-
-target_include_directories(${PROJECT_NAME} PUBLIC ../Logger/src)
-target_link_libraries(${PROJECT_NAME} Logger)
+target_include_directories(${PROJECT_NAME} PUBLIC ../SW.Module.Logger/src)
+target_link_libraries(${PROJECT_NAME} SW.Module.Logger)
