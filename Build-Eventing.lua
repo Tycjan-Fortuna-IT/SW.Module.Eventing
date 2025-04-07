@@ -1,4 +1,4 @@
-project "Eventing"
+project "SW.Module.Eventing"
     kind "StaticLib"
 
     warnings "Everything"

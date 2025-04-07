@@ -1,6 +1,6 @@
-# SW Eventing Module
+# SW.Module.Eventing
 
-The SW Eventing module provides a flexible and type-safe event system, allowing developers to easily manage events and listeners within an application. This module is designed to support any number and type of event arguments, offering high configurability for handling diverse event-driven scenarios, such as UI interactions, system events, or custom application signals.
+The SW.Module.Eventing provides a flexible and type-safe event system, allowing developers to easily manage events and listeners within an application. This module is designed to support any number and type of event arguments, offering high configurability for handling diverse event-driven scenarios, such as UI interactions, system events, or custom application signals.
 
 ### Key Component
 
@@ -17,11 +17,11 @@ Used C++ dialect version: `20`
 
 ## Dependencies (SW modules)
 
-| Module | Link                                        | Version |
-| ------ | ------------------------------------------- | ------- |
-| Logger | https://github.com/Tycjan-Fortuna-IT/Logger | latest  |
+| Module           | Link                                                  | Version |
+| ---------------- | ----------------------------------------------------- | ------- |
+| SW.Module.Logger | https://github.com/Tycjan-Fortuna-IT/SW.Module.Logger | master  |
 
-Placed in the same directory as the Eventing module.
+Placed in the same directory as the SW.Module.Eventing module.
 It is recommended to keep all modules in the same directory e.g. `Engine/modules/`.
 
 ## Installation (Premake5 - FancyBuildSystem)
@@ -29,7 +29,7 @@ It is recommended to keep all modules in the same directory e.g. `Engine/modules
 Add inside your main dependencies.lua following line:
 
 ```lua
-FBS.ImportModule("Engine/modules/Eventing");
+FBS.ImportModule("Engine/modules/SW.Module.Eventing");
 ```
 
 Replacing with correct path to the module.
@@ -40,16 +40,16 @@ Add the following to your CMakeLists.txt file:
 
 ```cmake
 add_subdirectory(PATH_TO_THIS_MODULE)
-target_link_libraries(${PROJECT_NAME} Eventing)
+target_link_libraries(${PROJECT_NAME} SW.Module.Eventing)
 target_include_directories(${PROJECT_NAME} PUBLIC PATH_TO_THIS_MODULE/src)
 ```
 
 Example:
 
 ```cmake
-add_subdirectory(Modules/Eventing)
-target_link_libraries(${PROJECT_NAME} Eventing)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Engine/Modules/Eventing/src)
+add_subdirectory(Modules/SW.Module.Eventing)
+target_link_libraries(${PROJECT_NAME} SW.Module.Eventing)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Engine/Modules/SW.Module.Eventing/src)
 ```
 
 ### Methods and Usage
@@ -62,7 +62,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/Engine/Mod
 
 ### Example Usage
 
-The SW Eventing module can be employed to handle a variety of events within an application. For instance, UI or input events can be managed through this module:
+The SW.Module.Eventing can be employed to handle a variety of events within an application. For instance, UI or input events can be managed through this module:
 
 ```cpp
 // Define events for different use cases.
@@ -84,11 +84,11 @@ MouseScrollWheelEvent.Invoke(0.0f, -1.0f);
 
 ### Features
 
-The SW Eventing module is designed with flexibility and ease of use in mind, allowing for straightforward management of callbacks and ensuring event handlers are easy to register, deregister, and invoke. Key features include:
+The SW.Module.Eventing is designed with flexibility and ease of use in mind, allowing for straightforward management of callbacks and ensuring event handlers are easy to register, deregister, and invoke. Key features include:
 
 - **Type-Safe Callbacks**: Using templates, events are strongly typed, ensuring that only callbacks with matching argument types can be registered, minimizing runtime errors.
 - **Custom Event Arguments**: Events can be created with any number and type of arguments, making the module adaptable to a wide range of event scenarios.
 - **Dynamic Listener Management**: Listeners can be added, removed, or cleared, providing fine-grained control over event subscriptions.
 - **Operator Overloads**: Supports `+=` and `-=` for adding and removing listeners, making the API intuitive and easy to use.
 
-The SW Eventing module's type-safe, flexible architecture makes it an ideal choice for building event-driven systems where easy listener management and custom event propagation are essential.
+The SW.Module.Eventing's type-safe, flexible architecture makes it an ideal choice for building event-driven systems where easy listener management and custom event propagation are essential.
